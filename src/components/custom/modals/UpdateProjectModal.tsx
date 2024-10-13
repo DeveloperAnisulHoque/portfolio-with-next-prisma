@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import React, { useState } from "react";
-import { createProject } from "@/actions/actions";
+import React, { useEffect, useState } from "react";
+import { updateProject } from "@/actions/actions";
 import {
   Dialog,
   DialogContent,
@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Image as ImageIcon, Plus, X } from "lucide-react";
+import { Image as ImageIcon, Pencil, Plus, X } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import Image from "next/image";
@@ -36,7 +36,7 @@ const projectSchema = z.object({
   type: z.string(),
 });
 
-const CreateProjectModal = () => {
+const UpdateProjectModal = ({ data }: { data: any }) => {
   const [open, setOpen] = useState(false);
   const { toast } = useToast();
   const [file, setFile] = useState(null);
@@ -51,15 +51,29 @@ const CreateProjectModal = () => {
     formState: { errors },
   } = useForm({
     resolver: zodResolver(projectSchema),
+    defaultValues: {
+      title: data?.title || "",
+      live: data?.live || "",
+      github: data?.github || "",
+      description: data?.description || "",
+      type: data?.type || "", // Set the default value for type
+    },
   });
 
-  const handleFormSubmit = async (data) => {
+  // Ensure that the type field is set when opening the modal
+  useEffect(() => {
+    if (data?.type) {
+      setValue("type", data.type);
+    }
+  }, [data?.type, setValue]);
+
+  const handleFormSubmit = async (d: any) => {
     const formData = new FormData();
-    formData.append("title", data.title);
-    formData.append("live", data.live);
-    formData.append("github", data.github);
-    formData.append("description", data.description);
-    formData.append("type", data.type); // Append the type field
+    formData.append("title", d.title);
+    formData.append("live", d.live);
+    formData.append("github", d.github);
+    formData.append("description", d.description);
+    formData.append("type", d.type);
     if (file) {
       formData.append("photo", file);
     } else {
@@ -68,11 +82,10 @@ const CreateProjectModal = () => {
     }
 
     try {
-      const projectData = await createProject(formData);
+      const projectData = await updateProject(data.id, formData);
       if (projectData.id) {
-        toast({ title: "Project created successfully!" });
+        toast({ title: "Project updated successfully!" });
         setFile(null);
-        reset();
         setOpen(false);
       }
     } catch (error) {
@@ -81,33 +94,31 @@ const CreateProjectModal = () => {
     }
   };
 
-  const handleFileChange = (e) => {
+  const handleFileChange = (e: any) => {
     const selectedFile = e.target.files[0];
     setFile(selectedFile);
-    clearErrors("photo"); // Clear photo error when file is selected
+    clearErrors("photo");
   };
 
   return (
     <>
       <Button
         onClick={() => setOpen(true)}
-        className="flex gap-1 items-center  px-3"
+        variant={"outline"}
+        className="px-2 text-blue-500 hover:bg-blue-500 hover:text-white"
       >
-        <Plus />
-        Create
+        <Pencil />
       </Button>
       <Dialog
         open={open}
         onOpenChange={() => {
           setOpen(false);
-          setFile(null);
-          reset();
         }}
       >
         <DialogTrigger asChild></DialogTrigger>
-        <DialogContent className=" w-11/12   max-w-lg ">
+        <DialogContent className="w-11/12 max-w-lg">
           <DialogHeader>
-            <DialogTitle>Add New Project</DialogTitle>
+            <DialogTitle>Update Project</DialogTitle>
           </DialogHeader>
 
           <form
@@ -130,8 +141,12 @@ const CreateProjectModal = () => {
             {/* Project Type Selection */}
             <div className="space-y-1">
               <Label htmlFor="type">Project Type</Label>
-              <Select id="type" onValueChange={(e) => setValue("type", e)}>
-                <SelectTrigger className="">
+              <Select
+                id="type"
+                onValueChange={(value) => setValue("type", value)}
+                defaultValue={data.type} // Set the default value based on the data
+              >
+                <SelectTrigger>
                   <SelectValue placeholder="Select Project Type" />
                 </SelectTrigger>
                 <SelectContent>
@@ -185,7 +200,7 @@ const CreateProjectModal = () => {
                   <Button
                     type="button"
                     onClick={() => setFile(null)}
-                    className="absolute top-2 right-1 px-1 w-6 h-6 z-20 bg-red-500 hover:bg-red-600 rounded-sm "
+                    className="absolute top-2 right-1 px-1 w-6 h-6 z-20 bg-red-500 hover:bg-red-600 rounded-sm"
                   >
                     <X />
                   </Button>
@@ -216,7 +231,7 @@ const CreateProjectModal = () => {
             </div>
 
             <Button type="submit" className="ms-auto block">
-              Create
+              Update
             </Button>
           </form>
         </DialogContent>
@@ -225,4 +240,4 @@ const CreateProjectModal = () => {
   );
 };
 
-export default CreateProjectModal;
+export default UpdateProjectModal;

@@ -10,11 +10,23 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
 
 import { Github, Link as LinkIcon, Pencil } from "lucide-react";
 import DeleteProjectModal from "@/components/custom/modals/DeleteProjectModal";
 import CreateProjectModal from "@/components/custom/modals/CreateProjectModal";
 import Link from "next/link";
+import UpdateProjectModal from "@/components/custom/modals/UpdateProjectModal";
+import { formatDate } from "@/lib/utils";
+import EmptyDataSection from "@/components/custom/shared/EmptyDataSection";
 
 const page = async () => {
   const projects = await getAllProjects();
@@ -26,32 +38,30 @@ const page = async () => {
         <CreateProjectModal />
       </div>
 
-      <div>
+      <div className="space-y-2">
         <Table>
-          <TableCaption>A list of your recent projects.</TableCaption>
+          {/* <TableCaption>A list of your recent projects.</TableCaption> */}
           <TableHeader>
             <TableRow>
-              <TableHead className="w-[100px]">#Id</TableHead>
               <TableHead>Title</TableHead>
               <TableHead>Links</TableHead>
+              <TableHead>Type</TableHead>
+              <TableHead>createdAt</TableHead>
               <TableHead className="text-right">Actions</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {projects.map((project) => (
               <TableRow key={project.id}>
-                <TableCell className="font-medium">
-                  {project?.id?.slice(7, 12)}
-                </TableCell>
                 <TableCell className="font-semibold">
                   {project.title?.slice(0, 40)}
                   {project.title?.length > 40 && "..."}
                 </TableCell>
-                <TableCell className="font-semibold space-x-2">
+                <TableCell className="font-semibold  flex items-center  gap-2">
                   <Link href={project?.github}>
                     <Button
                       variant={"outline"}
-                      className="px-2    hover:bg-gray-900 hover:text-white "
+                      className="px-2    bg-gray-900 text-white hover:bg-gray-700 hover:text-white "
                     >
                       <Github />
                     </Button>
@@ -59,19 +69,19 @@ const page = async () => {
                   <Link href={project?.live}>
                     <Button
                       variant={"outline"}
-                      className="px-2    hover:bg-blue-500 hover:text-white "
+                      className="px-2    bg-blue-500 text-white hover:bg-blue-400 hover:text-white "
                     >
                       <LinkIcon />
                     </Button>
                   </Link>
                 </TableCell>
-                <TableCell className="text-right space-x-2">
-                  <Button
-                    variant={"outline"}
-                    className="px-2 text-blue-500 hover:bg-blue-500 hover:text-white "
-                  >
-                    <Pencil />
-                  </Button>
+                <TableCell className="font-medium">{project?.type}</TableCell>
+                <TableCell className="font-medium">
+                  {" "}
+                  {formatDate(project?.createdAt, "ll")}
+                </TableCell>
+                <TableCell className=" text-right font-semibold  flex items-center  justify-end gap-2">
+                  <UpdateProjectModal data={project} />
                   <DeleteProjectModal id={project.id} />
                 </TableCell>
               </TableRow>
@@ -84,6 +94,38 @@ const page = async () => {
             </TableRow>
           </TableFooter> */}
         </Table>
+
+        {projects?.length <= 0 ? (
+          <EmptyDataSection />
+        ) : (
+          <>
+            <hr />
+            <Pagination className="justify-end ">
+              <PaginationContent>
+                <PaginationItem>
+                  <PaginationPrevious href="#" />
+                </PaginationItem>
+                <PaginationItem>
+                  <PaginationLink href="#">1</PaginationLink>
+                </PaginationItem>
+                <PaginationItem>
+                  <PaginationLink href="#" isActive>
+                    2
+                  </PaginationLink>
+                </PaginationItem>
+                <PaginationItem>
+                  <PaginationLink href="#">3</PaginationLink>
+                </PaginationItem>
+                <PaginationItem>
+                  <PaginationEllipsis />
+                </PaginationItem>
+                <PaginationItem>
+                  <PaginationNext href="#" />
+                </PaginationItem>
+              </PaginationContent>
+            </Pagination>
+          </>
+        )}
       </div>
     </div>
   );

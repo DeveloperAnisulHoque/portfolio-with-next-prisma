@@ -79,7 +79,7 @@ body {
 
 @layer components {
   .container {
-    @apply w-11/12  mx-auto max-w-[1300px]  2xl:max-w-[1500px];
+    @apply w-[97%]  mx-auto max-w-[1300px]  2xl:max-w-[1600px];
   }
   .page-title {
     @apply text-2xl font-semibold text-primary;

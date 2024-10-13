@@ -5,7 +5,6 @@ const page = () => {
   return (
     <div className="container space-y-3">
       <h1 className="page-title">welcome anis !</h1>
-      <hr />
     </div>
   );
 };

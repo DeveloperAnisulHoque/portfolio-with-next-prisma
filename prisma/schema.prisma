@@ -29,8 +29,9 @@ model Project{
   live  String
   github  String
   description  String
-    type        ProjectType
+  type        ProjectType
   isTrashed  Boolean @default(false)  
-
+  createdAt DateTime @default(now())  
+  updatedAt DateTime @updatedAt  
 
 }

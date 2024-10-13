@@ -1,10 +1,10 @@
 "use client";
 import { cn } from "@/lib/utils";
 import {
-  LayoutDashboard,
   LayoutDashboardIcon,
   Home,
   FolderKanban,
+  TrashIcon,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -40,6 +40,16 @@ const Sidebar = () => {
         >
           <FolderKanban />
           Projects
+        </Link>
+        <Link
+          href={"/dashboard/trash"}
+          className={cn(
+            "flex gap-3 items-center px-4  py-2  hover:bg-slate-700 hover:text-slate-200 text-white text-sm",
+            { "bg-slate-700 text-slate-200": pathName == "/dashboard/trash" }
+          )}
+        >
+          <TrashIcon />
+          Trash
         </Link>
       </div>
     </div>
