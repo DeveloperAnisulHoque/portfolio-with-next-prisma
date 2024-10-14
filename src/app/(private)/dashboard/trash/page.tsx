@@ -2,13 +2,13 @@ import React from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Clock, RotateCcw, Trash, Trash2 } from "lucide-react";
-import { getAllTrashedProjects, recoverDeleteProject } from "@/actions/actions";
+import { fetchTrashedProjects, restoreTrashedProject } from "@/actions/actions";
 import { formatDate } from "@/lib/utils";
 import HardDeleteProjectModal from "@/components/custom/modals/HardDeleteProjectModal";
 import EmptyDataSection from "@/components/custom/shared/EmptyDataSection";
 
 const page = async () => {
-  const projects = await getAllTrashedProjects();
+  const projects = await fetchTrashedProjects();
   return (
     <div className="container space-y-3">
       <h1 className="page-title">Trashed memory</h1>
@@ -28,7 +28,7 @@ const page = async () => {
             <div className="flex gap-4 flex-wrap items-center">
               <h4 className="text-lg font-semibold">{item?.title}</h4>
               <div className="flex gap-2 ms-auto ">
-                <form action={recoverDeleteProject}>
+                <form action={restoreTrashedProject}>
                   <input className="hidden" value={item?.id} name="id" />
                   <Button variant="outline" className="  space-x-2 ">
                     <RotateCcw className="" />

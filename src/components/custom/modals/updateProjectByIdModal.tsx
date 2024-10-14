@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import React, { useEffect, useState } from "react";
-import { updateProject } from "@/actions/actions";
+import { updateProjectById } from "@/actions/actions";
 import {
   Dialog,
   DialogContent,
@@ -36,7 +36,7 @@ const projectSchema = z.object({
   type: z.string(),
 });
 
-const UpdateProjectModal = ({ data }: { data: any }) => {
+const UpdateProjectByIdModal = ({ data }: { data: any }) => {
   const [open, setOpen] = useState(false);
   const { toast } = useToast();
   const [file, setFile] = useState(null);
@@ -82,7 +82,7 @@ const UpdateProjectModal = ({ data }: { data: any }) => {
     }
 
     try {
-      const projectData = await updateProject(data.id, formData);
+      const projectData = await updateProjectById(data.id, formData);
       if (projectData.id) {
         toast({ title: "Project updated successfully!" });
         setFile(null);
@@ -240,4 +240,4 @@ const UpdateProjectModal = ({ data }: { data: any }) => {
   );
 };
 
-export default UpdateProjectModal;
+export default UpdateProjectByIdModal;

@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import React, { useState } from "react";
-import { createProject } from "@/actions/actions";
+import { createNewProject } from "@/actions/actions";
 import {
   Dialog,
   DialogContent,
@@ -36,7 +36,7 @@ const projectSchema = z.object({
   type: z.string(),
 });
 
-const CreateProjectModal = () => {
+const CreateNewProjectModal = () => {
   const [open, setOpen] = useState(false);
   const { toast } = useToast();
   const [file, setFile] = useState(null);
@@ -68,7 +68,7 @@ const CreateProjectModal = () => {
     }
 
     try {
-      const projectData = await createProject(formData);
+      const projectData = await createNewProject(formData);
       if (projectData.id) {
         toast({ title: "Project created successfully!" });
         setFile(null);
@@ -225,4 +225,4 @@ const CreateProjectModal = () => {
   );
 };
 
-export default CreateProjectModal;
+export default CreateNewProjectModal;

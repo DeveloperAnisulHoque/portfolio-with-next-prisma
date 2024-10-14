@@ -12,14 +12,16 @@ import {
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Trash, Trash2 } from "lucide-react";
-import { deleteProjectHard } from "@/actions/actions";
+import { softpermanentlyDeleteProject } from "@/actions/actions";
 import { useToast } from "@/hooks/use-toast";
 
-interface HardDeleteProjectModal {
+interface HardsoftDeleteProjectModal {
   id: string;
 }
 
-const HardDeleteProjectModal: React.FC<HardDeleteProjectModal> = ({ id }) => {
+const HardsoftDeleteProjectModal: React.FC<HardsoftDeleteProjectModal> = ({
+  id,
+}) => {
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
 
@@ -28,7 +30,7 @@ const HardDeleteProjectModal: React.FC<HardDeleteProjectModal> = ({ id }) => {
   const handleDelete = async () => {
     setLoading(true);
     try {
-      await deleteProjectHard(id); // Execute server action
+      await softpermanentlyDeleteProject(id); // Execute server action
       toast({ title: "Project deleted successfully" });
       setIsOpen(false); // Close the modal after deletion
     } catch (error) {
@@ -79,4 +81,4 @@ const HardDeleteProjectModal: React.FC<HardDeleteProjectModal> = ({ id }) => {
   );
 };
 
-export default HardDeleteProjectModal;
+export default HardsoftDeleteProjectModal;

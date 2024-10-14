@@ -1,4 +1,5 @@
 import Sidebar from "@/components/custom/dashboard/Sidebar";
+import Topbar from "@/components/custom/dashboard/Topbar";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,11 +14,11 @@ export default function RootLayout({
 }>) {
   return (
     <div className="flex ">
-      <aside>
+      <aside className=" hidden lg:block">
         <Sidebar />
       </aside>
       <main className="flex-1 overflow-x-auto ">
-        <div className="h-12 bg-secondary  shadow "></div>
+        <Topbar />
         <div className=" py-6 ">{children}</div>
       </main>
     </div>

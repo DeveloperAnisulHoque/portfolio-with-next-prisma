@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import React from "react";
-import { getAllProjects } from "@/actions/actions";
+import { fetchActiveProjects } from "@/actions/actions";
 import {
   Table,
   TableBody,
@@ -21,21 +21,21 @@ import {
 } from "@/components/ui/pagination";
 
 import { Github, Link as LinkIcon, Pencil } from "lucide-react";
-import DeleteProjectModal from "@/components/custom/modals/DeleteProjectModal";
-import CreateProjectModal from "@/components/custom/modals/CreateProjectModal";
+import CreateNewProjectModal from "@/components/custom/modals/createProjectModal";
 import Link from "next/link";
-import UpdateProjectModal from "@/components/custom/modals/UpdateProjectModal";
+import UpdateProjectByIdModal from "@/components/custom/modals/updateProjectByIdModal";
 import { formatDate } from "@/lib/utils";
 import EmptyDataSection from "@/components/custom/shared/EmptyDataSection";
+import SoftDeleteProjectModal from "@/components/custom/modals/softDeleteProjectModal";
 
 const page = async () => {
-  const projects = await getAllProjects();
+  const projects = await fetchActiveProjects();
 
   return (
     <div className="container space-y-3">
       <div className="flex justify-between items-center flex-wrap">
         <h1 className="page-title">Your all projects</h1>
-        <CreateProjectModal />
+        <CreateNewProjectModal />
       </div>
 
       <div className="space-y-2">
@@ -81,8 +81,8 @@ const page = async () => {
                   {formatDate(project?.createdAt, "ll")}
                 </TableCell>
                 <TableCell className=" text-right font-semibold  flex items-center  justify-end gap-2">
-                  <UpdateProjectModal data={project} />
-                  <DeleteProjectModal id={project.id} />
+                  <UpdateProjectByIdModal data={project} />
+                  <SoftDeleteProjectModal id={project.id} />
                 </TableCell>
               </TableRow>
             ))}{" "}
