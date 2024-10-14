@@ -3,6 +3,7 @@
 Welcome to my **Portfolio**! This modern application is built using **Next.js** , **Prisma**, and **ShadCN**, designed for an intuitive Fullstack app.
 
 ![Demo 1](/src/assets/demo1.png)
+![Demo 1](/src/assets/demo2.png)
 
 ## ✨ Key Features
 
@@ -18,9 +19,6 @@ Welcome to my **Portfolio**! This modern application is built using **Next.js** 
 Create a `.env.local` file:
 
 ```bash
-NEXT_PUBLIC_API_URL=http://localhost:3001/api
-MONGODB_URL=<your-mongodb-url>
+ DATABASE_URL=<your-db-url>
 JWT_SECRET=<your-jwt-secret>
-STRIPE_SECRET_KEY=<your-stripe-secret-key>
-NEXT_PUBLIC_FRONTEND_URL=http://localhost:3000
 ```

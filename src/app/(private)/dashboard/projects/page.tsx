@@ -100,7 +100,7 @@ const page = async () => {
         ) : (
           <>
             <hr />
-            <Pagination className="justify-end ">
+            {/* <Pagination className="justify-end ">
               <PaginationContent>
                 <PaginationItem>
                   <PaginationPrevious href="#" />
@@ -123,7 +123,7 @@ const page = async () => {
                   <PaginationNext href="#" />
                 </PaginationItem>
               </PaginationContent>
-            </Pagination>
+            </Pagination> */}
           </>
         )}
       </div>

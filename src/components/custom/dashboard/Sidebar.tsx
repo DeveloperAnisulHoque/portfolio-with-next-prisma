@@ -6,6 +6,7 @@ import {
   FolderKanban,
   TrashIcon,
   BookCheck,
+  PencilRuler,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -17,6 +18,11 @@ const navLinks = [
     href: "/dashboard",
     label: "Home",
     icon: Home,
+  },
+  {
+    href: "/dashboard/landing",
+    label: "Landing",
+    icon: PencilRuler,
   },
   {
     href: "/dashboard/projects",
@@ -60,16 +66,14 @@ const Sidebar = () => {
               className={cn(
                 "flex items-center gap-3 px-6 py-3 text-sm font-medium transition-all duration-200 ms-2 ",
                 {
-                  "bg-slate-800 text-white border-r-4 border-r-indigo-500":
+                  "bg-slate-800 text-white border-r-4 border-r-blue-500":
                     isActive,
                   "text-slate-400 hover:bg-slate-700 hover:text-white":
                     !isActive,
                 }
               )}
             >
-              <Icon
-                className={cn("h-5 w-5", { "text-indigo-500": isActive })}
-              />
+              <Icon className={cn("h-5 w-5", { "text-blue-500": isActive })} />
               {navItem.label}
             </Link>
           );
