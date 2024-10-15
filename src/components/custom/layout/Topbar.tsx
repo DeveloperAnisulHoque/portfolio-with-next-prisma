@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  ChartNoAxesGantt,
   Cloud,
   CreditCard,
   Github,
@@ -34,11 +35,16 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-const Topbar = () => {
+const Topbar = ({
+  open,
+  onOpenChange,
+}: {
+  open: boolean;
+  onOpenChange: (i: boolean) => void;
+}) => {
   return (
-    <div className="flex  py-2 px-4 lg:px-11 items-center  bg-secondary  shadow  ">
+    <div className=" flex  py-2 px-4 lg:px-11 items-center  bg-secondary  shadow gap-3  ">
       {" "}
-      <Menu className="lg:hidden" />
       <DropdownMenu>
         <DropdownMenuTrigger asChild className="ms-auto">
           <Button className="px-2 h-fit" variant="outline">
@@ -61,6 +67,13 @@ const Topbar = () => {
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
+      <button onClick={() => onOpenChange(!open)}>
+        {!open ? (
+          <Menu className="lg:hidden" />
+        ) : (
+          <ChartNoAxesGantt className="lg:hidden" />
+        )}
+      </button>
     </div>
   );
 };
