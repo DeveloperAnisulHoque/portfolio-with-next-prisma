@@ -16,7 +16,7 @@ const AdminLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
   const [open, onOpenChange] = useState(false);
   const pathName = usePathname();
   useEffect(() => {
-    onOpenChange(!open);
+    onOpenChange(false);
   }, [pathName]);
 
   return (
