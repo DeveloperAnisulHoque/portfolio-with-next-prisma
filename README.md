@@ -11,6 +11,7 @@ Welcome to my **Portfolio**! This modern application is built using **Next.js** 
 
 - **Next.js**: For server-side rendering and API routes.
 - **Prisma**: Efficient ORM.
+- **ShadCN**: Ui desgin .
 
 ## 🛠️ Setup Instructions
 
