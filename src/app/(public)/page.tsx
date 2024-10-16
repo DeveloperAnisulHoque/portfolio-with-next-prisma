@@ -1,6 +1,6 @@
 import { logVisitor } from "@/actions/actions";
+import About from "@/components/custom/home/About";
 import HeroSection from "@/components/custom/home/HeroSection";
-import Image from "next/image";
 
 export default async function Home() {
   await logVisitor();
@@ -8,6 +8,7 @@ export default async function Home() {
     <div className="">
       <HeroSection />
       <hr />
+      <About />
     </div>
   );
 }

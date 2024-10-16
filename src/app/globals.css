@@ -81,7 +81,19 @@ body {
   .container {
     @apply w-[95%]  mx-auto max-w-[1300px]  2xl:max-w-[1600px];
   }
+  .section-title {
+    @apply text-2xl font-bold text-primary;
+  }
   .page-title {
-    @apply text-2xl font-semibold text-primary;
+    @apply text-3xl font-semibold text-primary;
+  }
+}
+@layer utilities {
+  .section-image {
+    background-image: url("/hire1.png");
+    background-position: center;
+    background-size: contain; /* Ensure image covers the area */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* This is for the parallax effect */
   }
 }
