@@ -1,6 +1,7 @@
 import { logVisitor } from "@/actions/actions";
 import About from "@/components/custom/home/About";
 import HeroSection from "@/components/custom/home/HeroSection";
+import Projects from "@/components/custom/home/Projects";
 
 export default async function Home() {
   await logVisitor();
@@ -9,6 +10,8 @@ export default async function Home() {
       <HeroSection />
       <hr />
       <About />
+      <hr />
+      <Projects />
     </div>
   );
 }

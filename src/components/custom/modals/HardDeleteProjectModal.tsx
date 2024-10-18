@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { Trash, Trash2 } from "lucide-react";
+import { Trash } from "lucide-react";
 import { softpermanentlyDeleteProject } from "@/actions/actions";
 import { useToast } from "@/hooks/use-toast";
 

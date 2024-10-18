@@ -2,14 +2,7 @@
 import React, { ReactNode, useEffect, useState } from "react";
 import Sidebar from "./Sidebar";
 import Topbar from "./Topbar";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { usePathname } from "next/navigation";
 
 const AdminLayout = ({ children }: Readonly<{ children: ReactNode }>) => {

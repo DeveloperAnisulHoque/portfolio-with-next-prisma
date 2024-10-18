@@ -4,21 +4,11 @@ import { fetchActiveProjects } from "@/actions/actions";
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "@/components/ui/pagination";
 
 import { Github, Link as LinkIcon, Pencil } from "lucide-react";
 import CreateNewProjectModal from "@/components/custom/modals/createProjectModal";

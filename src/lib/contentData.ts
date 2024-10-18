@@ -24,6 +24,7 @@ export const skillsContentData = [
     url: "/svg-icons/figma.svg",
     description: "lorem20",
   },
+
   {
     title: "Golang",
     priority: 5,
@@ -45,8 +46,14 @@ export const socialLinkContentData = [
     link: "#",
   },
   {
-    name: "facebook",
+    name: "leetcode",
     priority: 3,
+    url: "/svg-icons/leetcode.svg",
+    link: "#",
+  },
+  {
+    name: "facebook",
+    priority: 4,
     url: "/svg-icons/facebook.svg",
     link: "#",
   },

@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Clock, RotateCcw, Trash, Trash2 } from "lucide-react";
+import { Clock, RotateCcw } from "lucide-react";
 import { fetchTrashedProjects, restoreTrashedProject } from "@/actions/actions";
 import { formatDate } from "@/lib/utils";
 import HardDeleteProjectModal from "@/components/custom/modals/HardDeleteProjectModal";

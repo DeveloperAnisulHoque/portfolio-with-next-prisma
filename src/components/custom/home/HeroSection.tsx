@@ -1,10 +1,11 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { Briefcase, StickyNote, TvMinimal } from "lucide-react";
+import { Briefcase, FileUser } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect } from "react";
+import React from "react";
 import MeImage1 from "@/assets/anisulhoque1.jpg";
+ 
 import iconPlaceholder from "../../../../public/svg-icons/placeholder.svg";
 
 import { skillsContentData, socialLinkContentData } from "@/lib/contentData";
@@ -12,7 +13,7 @@ import { skillsContentData, socialLinkContentData } from "@/lib/contentData";
 const HeroSection = () => {
   return (
     <div>
-      <div className="container  py-24 flex flex-col-reverse   lg:flex-row  gap-10 items-center ">
+      <div className="container  py-24 flex flex-col-reverse   lg:flex-row  gap-10 items-center text-center lg:text-left ">
         <div className=" lg:w-6/12   space-y-4 flex flex-col items-center  lg:items-start">
           <h4 className="text-slate-700  text-2xl">HI, I'M A FREELANCER</h4>
           <h2 className=" text-4xl    lg:text-7xl font-extrabold text-primary">
@@ -22,26 +23,26 @@ const HeroSection = () => {
           <p className="text-lg">
             I'm a software developer specializing in scalable web apps.{" "}
             <br className="hidden lg:block" /> Explore my{" "}
-            <Link href={"/blog"} className="font-semibold text-primary">
+            <Link href={"/blogs"} className="font-semibold text-primary">
               blog
             </Link>
-            ,{" "}
-            <Link href={"/blog"} className="font-semibold text-primary">
-              Project portfolio
-            </Link>{" "}
-            and{" "}
-            <Link href={"/blog"} className="font-semibold text-primary">
+            , and{" "}
+            <Link href={"/resume"} className="font-semibold text-primary">
               online resume{" "}
             </Link>{" "}
             .
           </p>
           <div className="flex gap-4 items-center py-5">
-            <Button className="flex gap-2 items-center">
-              <StickyNote /> View Resume
-            </Button>
-            <Button variant={"outline"} className="flex gap-2 items-center">
-              <Briefcase /> View Portfolio
-            </Button>
+            <Link href={"/resume"}>
+              <Button className="flex gap-2 items-center">
+                <FileUser /> View Resume
+              </Button>
+            </Link>
+            <Link href={"/#project"}>
+              <Button variant={"outline"} className="flex gap-2 items-center">
+                <Briefcase /> View Portfolio
+              </Button>
+            </Link>
           </div>
 
           <div className="flex gap-1 items-center">
@@ -56,7 +57,7 @@ const HeroSection = () => {
                       height={100}
                       alt={item?.name}
                       onBlur={iconPlaceholder}
-                      className="w-10 h-10 p-1  rounded-full border border-slate-100 shadow  object-cover"
+                      className="w-10 h-10 p-1  rounded-full border border-slate-100 shadow  object-cover bg-white"
                     />
                   </Link>
                 );
@@ -95,28 +96,34 @@ const HeroSection = () => {
         </div>
       </div>
 
-      <div className="container pb-12  flex justify-center lg:justify-start items-center gap-12 flex-wrap">
+      <div className="container pb-12  flex   justify-center  lg:justify-start items-center gap-4   lg:gap-12 flex-wrap ">
         {" "}
-        <div className="flex gap-2 items-center">
-          <span className="text-5xl font-extrabold text-primary">5 </span>{" "}
-          <span className="text-4xl ">| </span>{" "}
-          <span className="">
+        <div className="flex flex-col lg:flex-row gap-2 lg:items-center border rounded p-2   lg:border-none lg:p-0 hover:ring-2 hover:ring-offset-2 ring-primary lg:ring-transparent duration-300 ">
+          <span className=" text-3xl lg:text-5xl font-extrabold text-primary">
+            5{" "}
+          </span>{" "}
+          <span className="   hidden lg:block text-4xl ">| </span>{" "}
+          <span className="text-xs lg:text-base">
             {" "}
             Years of <br /> Experience{" "}
           </span>
         </div>
-        <div className="flex gap-2 items-center">
-          <span className="text-5xl font-extrabold text-primary">55 </span>{" "}
-          <span className="text-4xl ">| </span>{" "}
-          <span className="">
+        <div className="flex flex-col lg:flex-row gap-2 lg:items-center border rounded p-2   lg:border-none lg:p-0 hover:ring-2 hover:ring-offset-2 ring-primary lg:ring-transparent duration-300 ">
+          <span className=" text-3xl lg:text-5xl font-extrabold text-primary">
+            55{" "}
+          </span>{" "}
+          <span className="   hidden lg:block text-4xl ">| </span>{" "}
+          <span className="text-xs lg:text-base">
             {" "}
             Projects <br /> Completed{" "}
           </span>
         </div>
-        <div className="flex gap-2 items-center">
-          <span className="text-5xl font-extrabold text-primary">1k </span>{" "}
-          <span className="text-4xl ">| </span>{" "}
-          <span className="">
+        <div className="flex flex-col lg:flex-row gap-2 lg:items-center border rounded p-2   lg:border-none lg:p-0 hover:ring-2 hover:ring-offset-2 ring-primary lg:ring-transparent duration-300 ">
+          <span className=" text-3xl lg:text-5xl font-extrabold text-primary">
+            1k{" "}
+          </span>{" "}
+          <span className="   hidden lg:block text-4xl ">| </span>{" "}
+          <span className="text-xs lg:text-base">
             {" "}
             Client <br /> Worldwide{" "}
           </span>

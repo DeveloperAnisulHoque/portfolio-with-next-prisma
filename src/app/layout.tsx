@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   title:
     "Anisul Hoque | Full-Stack Web Developer - Next.js, Nest.js, React, Go",
   description:
-    "Anisul Hoque is a highly skilled full-stack developer specializing in Next.js, React.js, Nest.js, Go (Golang), and JavaScript. Explore projects showcasing expertise in web development and modern technologies.",
+    "I'm highly skilled full-stack developer specializing in Next.js, React.js, Nest.js, Go (Golang), and JavaScript. Explore projects showcasing expertise in web development and modern technologies . Hire me to help you govern your IT company even more effectively",
 };
 
 export default async function RootLayout({
@@ -31,7 +31,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased  `}
       >
         <Toaster />
 

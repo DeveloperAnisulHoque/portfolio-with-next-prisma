@@ -19,11 +19,11 @@ const About = () => {
             quick overview of my main technical skill sets and technologies I
             use. Want to find out more <br className="hidden lg:block" /> about
             my experience? Check out my{" "}
-            <Link href={"/blog"} className="font-semibold text-primary">
+            <Link href={"/resume"} className="font-semibold text-primary">
               online resume{" "}
             </Link>
             and{" "}
-            <Link href={"/blog"} className="font-semibold text-primary">
+            <Link href={"/#project"} className="font-semibold text-primary">
               project portfolio{" "}
             </Link>{" "}
             .
@@ -43,7 +43,7 @@ const About = () => {
               return (
                 <div
                   key={index}
-                  className="p-4 bg-slate-50  border border-slate-100 rounded space-y-3 hover:shadow-sm duration-500 hover:bg-white"
+                  className="p-4    border border-slate-100 rounded space-y-3 hover:shadow-lg duration-500  bg-white"
                 >
                   <Image
                     width={200}
@@ -63,7 +63,7 @@ const About = () => {
       <hr />
       <div className="py-24  section-image relative  ">
         <div className=" absolute inset-0 m-auto bg-white bg-opacity-10 backdrop-blur  z-0 "></div>
-        <div className="container relative z-10 space-y-3 text-center md:text-left">
+        <div className="container relative z-10 space-y-3 text-center lg:text-left">
           <div className="flex  flex-col lg:flex-row gap-5 items-center">
             <h2 className="section-title flex-1">
               Let’s Work together on your next Project

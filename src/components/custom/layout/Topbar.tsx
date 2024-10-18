@@ -1,37 +1,13 @@
 import React from "react";
-import {
-  ChartNoAxesGantt,
-  Cloud,
-  CreditCard,
-  Github,
-  Keyboard,
-  LifeBuoy,
-  LogOut,
-  Mail,
-  Menu,
-  MessageSquare,
-  Plus,
-  PlusCircle,
-  Settings,
-  User,
-  User2,
-  UserPlus,
-  Users,
-} from "lucide-react";
+import { ChartNoAxesGantt, LogOut, Menu, User, User2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuPortal,
   DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 

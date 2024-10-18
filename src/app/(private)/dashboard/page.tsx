@@ -1,15 +1,7 @@
 import { countBlogs, countProjects, countVisitors } from "@/actions/actions";
 import { VisitorChart } from "@/components/custom/charts/VisitorChart";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  BookCheck,
-  Briefcase,
-  DollarSign,
-  FolderKanban,
-  Projector,
-  Users,
-} from "lucide-react";
+import { BookCheck, CalendarDays, FolderKanban, Users } from "lucide-react";
 import React from "react";
 
 const page = async () => {
@@ -53,6 +45,18 @@ const page = async () => {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{await countVisitors()}</div>
+            {/* <p className="text-xs text-muted-foreground">
+              +20.1% from last month
+            </p> */}
+          </CardContent>
+        </Card>
+        <Card x-chunk="dashboard-01-chunk-0">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Total Events</CardTitle>
+            <CalendarDays className="h-6 w-6 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">55</div>
             {/* <p className="text-xs text-muted-foreground">
               +20.1% from last month
             </p> */}

@@ -7,6 +7,8 @@ import {
   TrashIcon,
   BookCheck,
   PencilRuler,
+  CalendarDays,
+  Clock,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -18,6 +20,16 @@ const navLinks = [
     href: "/dashboard",
     label: "Home",
     icon: Home,
+  },
+  {
+    href: "/dashboard/events",
+    label: "Events",
+    icon: CalendarDays,
+  },
+  {
+    href: "/dashboard/availability",
+    label: "Availability",
+    icon: Clock,
   },
   {
     href: "/dashboard/landing",
@@ -47,12 +59,15 @@ const Sidebar = () => {
   return (
     <div className="w-64 h-screen bg-primary text-white shadow-lg flex flex-col">
       {/* <|===============| Logo |==============|> */}
-      <div className="flex items-center p-6 border-b border-slate-700">
+      <Link
+        href={"/"}
+        className="flex items-center p-6 border-b border-slate-700"
+      >
         <LayoutDashboardIcon className="text-3xl" />
         <span className="ml-3 text-2xl font-semibold tracking-wide">
           Dashboard
         </span>
-      </div>
+      </Link>
       {/* <|===============| NavItems |==============|> */}
       <div className="flex flex-col py-6 space-y-1">
         {navLinks.map((navItem) => {
