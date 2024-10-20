@@ -1,8 +1,16 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-import { ChartNoAxesGantt, Menu, User } from "lucide-react";
+import { ChartNoAxesGantt, LogOut, Menu, User, User2 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
@@ -59,11 +67,30 @@ const Header = () => {
           className="flex gap-3 items-center
 "
         >
-          <Link href={"/sign-in"}>
-            <Button className=" px-2  h-8 lg:h-10  lg:px-3">
-              <User className="w-4 h-4 lg:h-6 lg:w-6" />
-            </Button>
-          </Link>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild className="ms-auto">
+              <Button className="w-10 h-10 px-0 rounded-full flex items-center justify-center">
+                <User className="w-4 h-4 lg:h-6 lg:w-6" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-52 me-5">
+              <DropdownMenuLabel>My Account</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+
+              <DropdownMenuItem>
+                <Link href={"/profile"} className="flex  items-center w-full">
+                  <User className="mr-2 h-4 w-4" />
+                  <span>Profile</span>
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+
+              <DropdownMenuItem>
+                <LogOut className="mr-2 h-4 w-4" />
+                <span>Log out</span>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
 
           <button onClick={() => onOpenChange(!open)}>
             {!open ? (

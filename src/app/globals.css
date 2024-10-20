@@ -83,6 +83,9 @@ html {
   .container {
     @apply w-[95%]  mx-auto max-w-[1300px]  2xl:max-w-[1600px];
   }
+  .container-md {
+    @apply w-[95%] max-w-5xl mx-auto;
+  }
   .section-title {
     @apply text-2xl font-bold text-primary;
   }
