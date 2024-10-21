@@ -9,6 +9,8 @@ import {
   PencilRuler,
   CalendarDays,
   Clock,
+  Flag,
+  BicepsFlexed,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -32,9 +34,14 @@ const navLinks = [
     icon: Clock,
   },
   {
-    href: "/dashboard/landing",
-    label: "Landing",
-    icon: PencilRuler,
+    href: "/dashboard/socials",
+    label: "Socials",
+    icon: Flag,
+  },
+  {
+    href: "/dashboard/skills",
+    label: "Skills",
+    icon: BicepsFlexed,
   },
   {
     href: "/dashboard/projects",

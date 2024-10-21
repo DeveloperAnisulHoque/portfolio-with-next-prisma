@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { skillsContentData } from "@/lib/contentData";
-import { MoveRight } from "lucide-react";
+import { Ellipsis, MoveRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -54,7 +54,9 @@ const About = () => {
                   />
                   <h3 className="text-lg font-semibold">{item?.title}</h3>
 
-                  <p className="text-sm   text-gray-600">{item?.description}</p>
+                  <p className="text-sm   text-gray-600 line-clamp-3">
+                    {item?.description}
+                  </p>
                 </div>
               );
             })}

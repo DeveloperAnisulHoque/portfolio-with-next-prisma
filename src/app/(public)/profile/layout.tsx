@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 
 import { cn } from "@/lib/utils";
-import { Calendar, Ellipsis, User } from "lucide-react";
+import { Calendar, Ellipsis, User, Bookmark } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
@@ -10,6 +10,7 @@ import React, { useState } from "react";
 const navItems = [
   { name: "My Account", icon: User, url: "/profile" },
   { name: "Events", icon: Calendar, url: "/profile/events" },
+  { name: "BockMarks", icon: Bookmark, url: "/profile/bookmarks" },
 ];
 
 export default async function Layout({

@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import MeImage1 from "@/assets/anisulhoque1.jpg";
- 
+
 import iconPlaceholder from "../../../../public/svg-icons/placeholder.svg";
 
 import { skillsContentData, socialLinkContentData } from "@/lib/contentData";
@@ -98,7 +98,7 @@ const HeroSection = () => {
 
       <div className="container pb-12  flex   justify-center  lg:justify-start items-center gap-4   lg:gap-12 flex-wrap ">
         {" "}
-        <div className="flex flex-col lg:flex-row gap-2 lg:items-center border rounded p-2   lg:border-none lg:p-0 hover:ring-2 hover:ring-offset-2 ring-primary lg:ring-transparent duration-300 ">
+        <div className="flex flex-col lg:flex-row gap-2 lg:items-center border rounded p-2   lg:border-none lg:p-0 hover:ring-2 hover:ring-offset-2 ring-primary lg:ring-transparent lg:ring-offset-transparent duration-300 ">
           <span className=" text-3xl lg:text-5xl font-extrabold text-primary">
             5{" "}
           </span>{" "}
@@ -108,7 +108,7 @@ const HeroSection = () => {
             Years of <br /> Experience{" "}
           </span>
         </div>
-        <div className="flex flex-col lg:flex-row gap-2 lg:items-center border rounded p-2   lg:border-none lg:p-0 hover:ring-2 hover:ring-offset-2 ring-primary lg:ring-transparent duration-300 ">
+        <div className="flex flex-col lg:flex-row gap-2 lg:items-center border rounded p-2   lg:border-none lg:p-0 hover:ring-2 hover:ring-offset-2 ring-primary lg:ring-transparent lg:ring-offset-transparent duration-300 ">
           <span className=" text-3xl lg:text-5xl font-extrabold text-primary">
             55{" "}
           </span>{" "}
@@ -118,7 +118,7 @@ const HeroSection = () => {
             Projects <br /> Completed{" "}
           </span>
         </div>
-        <div className="flex flex-col lg:flex-row gap-2 lg:items-center border rounded p-2   lg:border-none lg:p-0 hover:ring-2 hover:ring-offset-2 ring-primary lg:ring-transparent duration-300 ">
+        <div className="flex flex-col lg:flex-row gap-2 lg:items-center border rounded p-2   lg:border-none lg:p-0 hover:ring-2 hover:ring-offset-2 ring-primary lg:ring-transparent lg:ring-offset-transparent duration-300 ">
           <span className=" text-3xl lg:text-5xl font-extrabold text-primary">
             1k{" "}
           </span>{" "}
